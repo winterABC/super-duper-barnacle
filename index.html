@@ -1,0 +1,68 @@
+<html>
+<head>
+    <style>
+        /*定义全局的字体样式*/
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #333333;
+        }
+        /*定义标题的字体样式*/
+        h1 {
+            color: #ffffff;
+            background-color: #0099ff;
+            text-align: center;
+            padding: 10px;
+        }
+        /*定义输入框的字体样式*/
+        input {
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        /*定义按钮的字体样式*/
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            background-color: #0099ff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        //定义一个函数，将两个输入框的字符串结合起来，并跳转到对应的网址
+        function goToUrl() {
+            //获取第一个输入框的值
+            var str1 = document.getElementById("str1").value;
+            //获取第二个输入框的值
+            var str2 = document.getElementById("str2").value;
+            
+            //判断第一个字符串是否以"https://"开头，如果不是，就在前面加上
+            if (!str1.startsWith("https://")) {
+                str1 = "https://" + str1;
+            }
+            
+            //判断第一个字符串是否以"/"结尾，如果不是，就在后面加上
+            if (!str1.endsWith("/")) {
+                str1 = str1 + "/";
+            }
+            
+            //将两个字符串结合起来，形成一个网址
+            var url = str1 + str2;
+            
+            //跳转到该网址
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <h1>字符串拼接跳转</h1>
+    <p>请输入两个字符串，然后点击跳转按钮，跳转到两个字符串拼接后的网址。</p>
+    <input id="str1" type="text" placeholder="请输入第一个字符串">
+    <input id="str2" type="text" placeholder="请输入第二个字符串">
+    <button onclick="goToUrl()">跳转</button>
+</body>
+</html>
